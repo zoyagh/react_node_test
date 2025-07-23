@@ -8,7 +8,7 @@ const Navbar = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const hideProfileRoutes = ["/", "/login", "/signup"];
+  const hideProfileRoutes = ["/", "/login", "/signup", "/landing"];
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [taskListOpen, setTaskListOpen] = useState(false);
@@ -57,7 +57,7 @@ const Navbar = () => {
       // Remove the correct profile from storage
       localStorage.removeItem(isAdminPortal ? "adminProfile" : "userProfile");
 
-      navigate("/");
+      navigate("/landing");
     } catch (err) {
       console.error("Logout failed:", err);
     }
@@ -89,7 +89,6 @@ const Navbar = () => {
     <nav className="bg-blue-600 text-white px-5 py-4 flex justify-between items-center shadow-lg">
       {/* Logo with Image & Text */}
       <Link
-        to="/"
         onClick={handleLogoClick}
         className="flex items-center text-3xl font-bold tracking-wide hover:opacity-70 transition"
       >
