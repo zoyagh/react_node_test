@@ -93,6 +93,7 @@ const Login = () => {
         
         // Create log entry for admin tracking
         const logData = {
+          id: Date.now().toString(),
           userId: user.userId,
           username: email,
           role: user.role,
